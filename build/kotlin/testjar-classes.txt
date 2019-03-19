@@ -1,0 +1,1 @@
+C:\Users\motorro\Work\Projects\bintray-release\plugin\core\build\test-projects\com.novoda.gradle.release.ReleasePluginTest\Kotlin project with Gradle 5.2.1\test\build\classes\kotlin\main\HelloWorld.class

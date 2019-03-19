@@ -1,0 +1,51 @@
+
+                
+buildscript {
+    ext.kotlin_version = '1.3.21'
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.novoda:bintray-release:0.9'
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'com.novoda.bintray-release'
+
+project.sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation "junit:junit:4.12"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    from sourceSets.main.allSource
+    classifier 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}
+
+publish {
+    userOrg = 'novoda'
+    groupId = 'com.novoda'
+    artifactId = 'test'
+    publishVersion = '1.0'
+    desc = 'description'
+}
+
+dependencies {
+    api 'io.reactivex.rxjava2:rxjava:2.2.0'
+    implementation 'com.squareup.okio:okio:2.1.0'
+}
+                
